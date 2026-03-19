@@ -1,27 +1,22 @@
 #!/usr/bin/env bash
-#exit if any command return a non-zero status
-set -e
+echo "== sync $1"
 
-#output location
-OUTPUT_DIR="/tmp/s3-bash-scripts"
+if [ -z "$1" ]; then
+    echo "There needs to be a bucket name eg. ./bucket my-bucket-name"
+    exit 1
+fi
 
-#remove the folder if already exist
-rm -r $OUTPUT_DIR
+if [ -z "$2" ]; then
+    echo "There needs to be a filename prefix eg. ./sync my-bucket-name my-filename-prefix"
+    exit 1
+fi
 
-#generate a output folder
-mkdir -p $OUTPUT_DIR
+BUCKET_NAME=$1
+FILENAME=$2
 
+OBJECT_KEY=$(basename "$FILENAME")
 
-#generate random number to determine how many files to be create
-NUM_FILES=$((RANDOM % 6 + 5 ))
-
-for ((i=1; i<=$NUM_FILES; i++)); do
-    FILENAME="$OUTPUT_DIR/file_$i.txt"
-
-    dd if=/dev/urandom of="$FILENAME" bs=1024 count=$((RANDOM % 1024+1)) 2>/dev/null
-done
-
-tree $OUTPUT_DIR
-
-
-
+aws s3api put-object \
+--bucket $BUCKET_NAME \
+--body $FILENAME \
+--key $OBJECT_KEY

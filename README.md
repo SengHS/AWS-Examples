@@ -12,3 +12,9 @@ cd AWS-Examples
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 export AWS_DEFAULT_REGION=ap-southeast-1
+
+# Create a .env to store the above env variables and add
+AWS_CLI_AUTO_PROMPT=on-partial
+# for better cli experience
+
+# Enter "source ./s3/bash-scripts/setup-env" for automatically setup your environment variables

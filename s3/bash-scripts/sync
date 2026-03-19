@@ -9,7 +9,7 @@ if [ -z "$1" ]; then
 fi
 
 if [ -z "$2" ]; then
-    echo "There needs to be a filename prefix eg. ./sync my-bucket prefix"
+    echo "There needs to be a filename prefix eg. ./sync my-bucket-name my-filename-prefix"
     exit 1
 fi
 
