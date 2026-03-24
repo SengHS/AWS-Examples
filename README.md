@@ -79,3 +79,7 @@ cdk init sample-app --language=typescript
 # download pulumi
 
 curl -fsSL https://get.pulumi.com | sh
+
+# install crc32 for checksum algorithm
+
+sudo apt-get install rhash (crc32 does not work)
