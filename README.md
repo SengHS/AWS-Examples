@@ -57,12 +57,21 @@ Install-Module -Name AWS.Tools.Installer
 
 # Powershell would not be able to Identify the AccessToken
 # so it will be best to use "aws configure" or enter 
-$env:AWS_ACCESS_KEY_ID="..."
-$env:AWS_SECRET_ACCESS_KEY="..."
-$env:AWS_DEFAULT_REGION="ap-southeast-1"
+
+    $env:AWS_ACCESS_KEY_ID="..."
+    $env:AWS_SECRET_ACCESS_KEY="..."
+    $env:AWS_DEFAULT_REGION="ap-southeast-1"
 
 # Terraform CLI Installation
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo gpg --dearmor -o /usr/share/keyrings/yarn-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/yarn-archive-keyring.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update
 sudo apt install terraform
+
+# AWS CDK Install
+npm i -g aws-cdk
+
+create a folder named "cdk" under iac and cd inside with bash
+then execute
+
+cdk init sample-app --language=typescript
