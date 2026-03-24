@@ -75,3 +75,7 @@ create a folder named "cdk" under iac and cd inside with bash
 then execute
 
 cdk init sample-app --language=typescript
+
+# download pulumi
+
+curl -fsSL https://get.pulumi.com | sh
