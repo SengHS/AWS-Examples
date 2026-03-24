@@ -2,25 +2,30 @@
 AWS codebase
 
 # instal AWS
+```
 cd ..
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
 cd AWS-Examples
+```
 
 # IAM Access key (some region might need to opt-in)
+```
 export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 export AWS_DEFAULT_REGION=ap-southeast-1
+```
 
 # Create a .env to store the above env variables and add
+```pwsh
 AWS_CLI_AUTO_PROMPT=on-partial
 # for better cli experience
+```
+Enter "source ./s3/bash-scripts/setup-env" for automatically setup your environment variables
 
-# Enter "source ./s3/bash-scripts/setup-env" for automatically setup your environment variables
-
-'
 # install powershell using these command
+```sh
 #https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu?view=powershell-7.5
 
 # Update the list of packages
@@ -50,10 +55,12 @@ sudo apt-get install -y powershell
 
 # Start PowerShell
 pwsh
-'
+```
 
 # Install AWS Tools in powershell
+```sh
 Install-Module -Name AWS.Tools.Installer
+
 
 # Powershell would not be able to Identify the AccessToken
 # so it will be best to use "aws configure" or enter 
@@ -61,18 +68,21 @@ Install-Module -Name AWS.Tools.Installer
     $env:AWS_ACCESS_KEY_ID="..."
     $env:AWS_SECRET_ACCESS_KEY="..."
     $env:AWS_DEFAULT_REGION="ap-southeast-1"
+```
 
 # Terraform CLI Installation
+```sh
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo gpg --dearmor -o /usr/share/keyrings/yarn-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/yarn-archive-keyring.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update
 sudo apt install terraform
+```
 
 # AWS CDK Install
+```sh
 npm i -g aws-cdk
 
-create a folder named "cdk" under iac and cd inside with bash
-then execute
+#create a folder named "cdk" under iac and cd inside with bash then execute
 
 cdk init sample-app --language=typescript
 
@@ -83,3 +93,4 @@ curl -fsSL https://get.pulumi.com | sh
 # install crc32 for checksum algorithm
 
 sudo apt-get install rhash (crc32 does not work)
+```
