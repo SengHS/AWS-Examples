@@ -1,0 +1,6 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: A simple s3 bucket
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    #do not need to give a bucket name as it will create itself
